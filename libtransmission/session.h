@@ -444,6 +444,13 @@ public:
         bool lpd_enabled = true;
         bool peer_port_random_on_start = false;
         bool pex_enabled = true;
+        // DISCLAIMER: privacy_mode and super_privacy_mode are provided for
+        // research purposes only. Misusing these settings to evade legal
+        // obligations, circumvent tracker rules, or engage in any malicious
+        // or fraudulent activity is strictly prohibited and remains solely
+        // the responsibility of the user.
+        bool privacy_mode = false;
+        bool super_privacy_mode = false;
         bool port_forwarding_enabled = true;
         bool queue_stalled_enabled = true;
         bool ratio_limit_enabled = false;
@@ -539,6 +546,8 @@ public:
             Field<&Settings::peer_socket_diffserv>{ TR_KEY_peer_socket_diffserv },
             Field<&Settings::pex_enabled>{ TR_KEY_pex_enabled },
             Field<&Settings::port_forwarding_enabled>{ TR_KEY_port_forwarding_enabled },
+            Field<&Settings::privacy_mode>{ TR_KEY_privacy_mode },
+            Field<&Settings::super_privacy_mode>{ TR_KEY_super_privacy_mode },
             Field<&Settings::preallocation_mode>{ TR_KEY_preallocation },
             Field<&Settings::preferred_transports>{ TR_KEY_preferred_transports },
             Field<&Settings::proxy_url>{ TR_KEY_proxy_url },
@@ -1032,7 +1041,19 @@ public:
 
     [[nodiscard]] constexpr auto allows_pex() const noexcept
     {
-        return settings().pex_enabled;
+        // Privacy mode disables PEX so peers cannot learn this client's IP
+        // from other peers in the swarm.
+        return settings().pex_enabled && !privacy_mode_enabled();
+    }
+
+    [[nodiscard]] constexpr bool privacy_mode_enabled() const noexcept
+    {
+        return settings().privacy_mode || settings().super_privacy_mode;
+    }
+
+    [[nodiscard]] constexpr bool super_privacy_mode_enabled() const noexcept
+    {
+        return settings().super_privacy_mode;
     }
 
     [[nodiscard]] constexpr auto allowsTCP() const noexcept

@@ -925,19 +925,35 @@ void on_announce_error(tr_tier* tier, char const* err, tr_announce_event e, time
     auto const* const current_tracker = tier->currentTracker();
     TR_ASSERT(current_tracker != nullptr);
 
+    auto const* const session = announcer->session;
+    bool const privacy = session->privacy_mode_enabled();
+    bool const super_privacy = session->super_privacy_mode_enabled();
+
+    // Privacy mode: send a fresh random peer_id so this client cannot be
+    // tracked across announce calls by its identifier.
+    // Super-privacy mode: additionally zero out downloaded/uploaded byte
+    // counts so the tracker cannot accrue a download history for this peer.
+    // DISCLAIMER: these modes are provided for research purposes only.
+    // Using them to evade legal obligations or engage in malicious activity
+    // is strictly prohibited and remains the sole responsibility of the user.
+    auto const effective_peer_id = privacy ? tr_peerIdInit() : tor->peer_id();
+    auto const effective_down = super_privacy ? uint64_t{ 0 } : tier->byteCounts[TR_ANN_DOWN];
+    auto const effective_up = super_privacy ? uint64_t{ 0 } : tier->byteCounts[TR_ANN_UP];
+    auto const effective_corrupt = super_privacy ? uint64_t{ 0 } : tier->byteCounts[TR_ANN_CORRUPT];
+
     return {
         .event = event,
         .partial_seed = tor->is_partial_seed(),
-        .port = announcer->session->advertisedPeerPort(),
+        .port = session->advertisedPeerPort(),
         .key = tor->announce_key(),
         .numwant = event == TR_ANNOUNCE_EVENT_STOPPED ? 0 : Numwant,
-        .up = tier->byteCounts[TR_ANN_UP],
-        .down = tier->byteCounts[TR_ANN_DOWN],
-        .corrupt = tier->byteCounts[TR_ANN_CORRUPT],
+        .up = effective_up,
+        .down = effective_down,
+        .corrupt = effective_corrupt,
         .leftUntilComplete = tor->has_metainfo() ? tor->total_size() - tor->has_total() : INT64_MAX,
         .announce_url = current_tracker->announce_url,
         .tracker_id = current_tracker->tracker_id,
-        .peer_id = tor->peer_id(),
+        .peer_id = effective_peer_id,
         .info_hash = tor->info_hash(),
         .log_name = tier->buildLogName(),
     };

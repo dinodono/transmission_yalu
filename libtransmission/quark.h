@@ -413,6 +413,8 @@ enum // NOLINT(performance-enum-size)
     TR_KEY_pex_enabled_kebab_APICOMPAT,
     TR_KEY_pex_enabled,
     TR_KEY_pidfile,
+    TR_KEY_privacy_mode,
+    TR_KEY_super_privacy_mode,
     TR_KEY_piece,
     TR_KEY_piece_length,
     TR_KEY_piece_count_camel_APICOMPAT,
