@@ -5,6 +5,8 @@
 /beta
 /build
 /build2
+/build_release
+/release_artifacts
 Transmission.xcodeproj/*.xcworkspace
 Transmission.xcodeproj/xcuserdata
 /cli/transmissioncli
