@@ -1064,6 +1064,8 @@ NetworkPage::NetworkPage(
     init_check_button("enable_pex_check", TR_KEY_pex_enabled);
     init_check_button("enable_dht_check", TR_KEY_dht_enabled);
     init_check_button("enable_lpd_check", TR_KEY_lpd_enabled);
+    init_check_button("privacy_mode_check", TR_KEY_privacy_mode);
+    init_check_button("super_privacy_mode_check", TR_KEY_super_privacy_mode);
     init_text_view("default_trackers_view", TR_KEY_default_trackers);
 }
 

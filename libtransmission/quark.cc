@@ -403,7 +403,6 @@ auto constexpr MyStatic = std::array<std::u8string_view, TR_N_KEYS>{
     u8"pex_enabled"sv, // rpc, tr_session::Settings
     u8"pidfile"sv, // daemon
     u8"privacy_mode"sv, // tr_session::Settings
-    u8"super_privacy_mode"sv, // tr_session::Settings
     u8"piece"sv, // BT protocol
     u8"piece length"sv, // .torrent
     u8"pieceCount"sv, // rpc
@@ -632,6 +631,7 @@ auto constexpr MyStatic = std::array<std::u8string_view, TR_N_KEYS>{
     u8"status"sv, // rpc
     u8"statusbar-stats"sv, // gtk app, qt app
     u8"statusbar_stats"sv, // gtk app, qt app
+    u8"super_privacy_mode"sv, // tr_session::Settings
     u8"tag"sv, // rpc
     u8"tcp-enabled"sv, // rpc, tr_session::Settings
     u8"tcp_enabled"sv, // rpc, tr_session::Settings

@@ -399,6 +399,8 @@ void PrefsDialog::initNetworkTab()
     initWidget(ui_.enablePexCheck, Prefs::PEX_ENABLED);
     initWidget(ui_.enableDhtCheck, Prefs::DHT_ENABLED);
     initWidget(ui_.enableLpdCheck, Prefs::LPD_ENABLED);
+    initWidget(ui_.privacyModeCheck, Prefs::PRIVACY_MODE);
+    initWidget(ui_.superPrivacyModeCheck, Prefs::SUPER_PRIVACY_MODE);
     initWidget(ui_.defaultTrackersPlainTextEdit, Prefs::DEFAULT_TRACKERS);
 
     auto* cr = new ColumnResizer{ this };

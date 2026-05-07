@@ -795,6 +795,26 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QCheckBox" name="privacyModeCheck">
+            <property name="toolTip">
+             <string>Privacy mode hides your IP address from other peers by randomizing the peer ID on every announce and disabling Peer Exchange (PEX). For research purposes only.</string>
+            </property>
+            <property name="text">
+             <string>Enable &amp;Privacy Mode (research use only)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="superPrivacyModeCheck">
+            <property name="toolTip">
+             <string>Super-Privacy mode includes all Privacy mode protections and additionally prevents reporting download statistics to the tracker. For research purposes only.</string>
+            </property>
+            <property name="text">
+             <string>Enable &amp;Super-Privacy Mode (research use only)</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>

@@ -1040,6 +1040,36 @@
                                 </layout>
                               </object>
                             </child>
+                            <child>
+                              <object class="GtkCheckButton" id="privacy_mode_check">
+                                <property name="label" translatable="yes">Enable _Privacy Mode (research use only)</property>
+                                <property name="focusable">1</property>
+                                <property name="tooltip-text" translatable="yes">Privacy mode hides your IP from other peers by randomizing the peer ID on every announce and disabling PEX. For research purposes only.</property>
+                                <property name="valign">center</property>
+                                <property name="hexpand">1</property>
+                                <property name="use-underline">1</property>
+                                <layout>
+                                  <property name="column">0</property>
+                                  <property name="row">4</property>
+                                  <property name="column-span">2</property>
+                                </layout>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkCheckButton" id="super_privacy_mode_check">
+                                <property name="label" translatable="yes">Enable _Super-Privacy Mode (research use only)</property>
+                                <property name="focusable">1</property>
+                                <property name="tooltip-text" translatable="yes">Super-Privacy mode includes all Privacy mode protections and additionally prevents reporting download statistics to the tracker. For research purposes only.</property>
+                                <property name="valign">center</property>
+                                <property name="hexpand">1</property>
+                                <property name="use-underline">1</property>
+                                <layout>
+                                  <property name="column">0</property>
+                                  <property name="row">5</property>
+                                  <property name="column-span">2</property>
+                                </layout>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>

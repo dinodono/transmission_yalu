@@ -1409,6 +1409,42 @@
                             <property name="width">2</property>
                           </packing>
                         </child>
+                        <child>
+                          <object class="GtkCheckButton" id="privacy_mode_check">
+                            <property name="label" translatable="yes">Enable _Privacy Mode (research use only)</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">False</property>
+                            <property name="tooltip-text" translatable="yes">Privacy mode hides your IP from other peers by randomizing the peer ID on every announce and disabling PEX. For research purposes only.</property>
+                            <property name="valign">center</property>
+                            <property name="hexpand">True</property>
+                            <property name="use-underline">True</property>
+                            <property name="draw-indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">4</property>
+                            <property name="width">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="super_privacy_mode_check">
+                            <property name="label" translatable="yes">Enable _Super-Privacy Mode (research use only)</property>
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="receives-default">False</property>
+                            <property name="tooltip-text" translatable="yes">Super-Privacy mode includes all Privacy mode protections and additionally prevents reporting download statistics to the tracker. For research purposes only.</property>
+                            <property name="valign">center</property>
+                            <property name="hexpand">True</property>
+                            <property name="use-underline">True</property>
+                            <property name="draw-indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left-attach">0</property>
+                            <property name="top-attach">5</property>
+                            <property name="width">2</property>
+                          </packing>
+                        </child>
                       </object>
                     </child>
                   </object>
