@@ -402,7 +402,6 @@ auto constexpr MyStatic = std::array<std::u8string_view, TR_N_KEYS>{
     u8"pex-enabled"sv, // rpc, tr_session::Settings
     u8"pex_enabled"sv, // rpc, tr_session::Settings
     u8"pidfile"sv, // daemon
-    u8"privacy_mode"sv, // tr_session::Settings
     u8"piece"sv, // BT protocol
     u8"piece length"sv, // .torrent
     u8"pieceCount"sv, // rpc
@@ -429,6 +428,7 @@ auto constexpr MyStatic = std::array<std::u8string_view, TR_N_KEYS>{
     u8"priority_high"sv, // rpc
     u8"priority_low"sv, // rpc
     u8"priority_normal"sv, // rpc
+    u8"privacy_mode"sv, // tr_session::Settings
     u8"private"sv, // .torrent
     u8"progress"sv, // .resume, rpc
     u8"prompt-before-exit"sv, // qt app
